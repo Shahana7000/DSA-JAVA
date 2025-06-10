@@ -12,7 +12,6 @@ public class vowels {
         for (int i = 0; i < input.length(); i++) {
             char ch = input.charAt(i);
 
-            // Check if it's a letter (skip spaces, punctuation, digits)
             if (Character.isLetter(ch)) {
                 if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
                     vowelCount++;
