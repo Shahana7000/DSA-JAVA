@@ -9,14 +9,14 @@ public class PrimeCount {
     }
 
     public int countPrimes(int n) {
-        int counter = 0;
+        int count = 0;
 
         for (int i = 2; i < n; i++) {
             if (isPrime(i)) {
-                counter++;
+                count++;
             }
         }
-        return counter;
+        return count;
     }
 
     public boolean isPrime(int num) {
