@@ -9,8 +9,11 @@ public class HashTableDemo {
        s.put(1,"shahana");  
        s.put(1,"shahana");
        s.put(1,"shahana");
+       System.out.println(s);
+
+       System.out.println(s.contains("saksham"));
 
     
-System.out.println(s);
+// System.out.println(s);
     }
 }
