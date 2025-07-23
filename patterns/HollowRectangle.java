@@ -28,8 +28,8 @@ public static void Trianle(int n){
     }
 }
 public static void main(String args[]){
-    printHollowRectangle(5, 10);
-    Trianle(5);
+    printHollowRectangle(10, 10);
+    Trianle(10);
 
 
 }
