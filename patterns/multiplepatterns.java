@@ -1,4 +1,4 @@
-public class halfparamind {
+public class multiplepatterns {
     public static void paramint(int n){
         for(int i = 1;i<n;i++){
             for(int j = 1;j<n-i;j++){
