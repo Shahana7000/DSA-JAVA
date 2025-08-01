@@ -44,10 +44,42 @@ public static void BinaryPyramid(int n){
 System.out.println();
     }
 }
+public static void butterflyPyramid(int n ){
+    for(int i = 1;i<=n;i++){
+        for(int j = 1;j<=i;j++){
+            System.out.print("*");
+        }
+        for(int j = 1;j<=2*(n-i);j++){
+            System.out.print(" ");
+        }
+        for(int j = 1;j<=i;j++){
+            System.out.print("*");
+}
+System.out.println();
+    }
+
+for(int i = n;i>=1;i--){
+    for(int j = 1;j<=i;j++){
+            System.out.print("*");
+        }
+        for(int j = 1;j<=2*(n-i);j++){
+            System.out.print(" ");
+        }
+        for(int j = 1;j<=i;j++){
+            System.out.print("*");
+}
+System.out.println();
+    }
+}
+
+
+
     public static void main(String[] args) {
         paramint(5);
         numberpyramid(5);
         floyd(5);
         BinaryPyramid(5);
+        butterflyPyramid(5);
+       
 }
     }
