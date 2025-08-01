@@ -71,6 +71,17 @@ for(int i = n;i>=1;i--){
 System.out.println();
     }
 }
+public static void RhombusPyramid(int n){
+    for(int i = 1;i<=n;i++){
+        for(int j = 1;j<=n-i;j++){
+            System.out.print(" ");
+        }
+        for(int j=1;j<=n;j++){
+            System.out.print("*");
+        }
+        System.out.println();
+    }
+}
 
 
 
@@ -80,6 +91,7 @@ System.out.println();
         floyd(5);
         BinaryPyramid(5);
         butterflyPyramid(5);
+        RhombusPyramid(5);
        
 }
     }
