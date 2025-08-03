@@ -21,9 +21,25 @@ public class MaxSubarraySum {
         }
         System.out.println(maxSum);
     }
+    public static void kadane(int[] numbers){
+        int maxSum = Integer.MIN_VALUE;
+        int curre = 0;
+        for(int i = 0;i<numbers.length;i++){
+            curre = curre + numbers[i];
+            if(curre < 0){
+               curre = 0;
+            }
+            maxSum = Math.max(maxSum, curre);
+
+
+    }
+    System.out.println(maxSum);
+}
+
     public static void main(String args[]){
-        int[] numbers = {1,2,3,4,5};
+        int[] numbers = {-1,-2,4,3,-8,2,1};
         subarraySum(numbers);
+        kadane(numbers);
     }
 
                 
