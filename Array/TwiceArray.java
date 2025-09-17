@@ -29,6 +29,9 @@ public static int TargetArray(int[] numbers, int target){
     }
     return -1;
 }
+public static void ProfitLoss(int[] numbers){
+    
+}
     
 
     
