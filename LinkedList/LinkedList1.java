@@ -45,10 +45,20 @@ public class LinkedList1 {
         }
         System.out.println("null");
     }
+    public void add(int idx, int data){
+        Node newNode = new Node(data);
+        Node temp = head;
+        int i =0;
+        while(i <idx-1){
+            newNode.next = temp.next;
+            temp.next = newNode;
+        }
+    }
     public static void main(String args[]){
         LinkedList1 ll = new LinkedList1();
         ll.addFirst(2);
         ll.addFirst(1);
+        ll.add(2, 10);
         ll.addLast(3);
         ll.addLast(4);
         ll.display();
