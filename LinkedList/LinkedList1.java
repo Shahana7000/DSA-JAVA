@@ -16,7 +16,7 @@ public class LinkedList1 {
     // Add at beginning
     public void addFirst(int data) {
         Node newNode = new Node(data);
-        if (head == null) { // empty list
+        if (head == null) {
             head = tail = newNode;
             return;
         }
@@ -35,7 +35,7 @@ public class LinkedList1 {
         tail = newNode;
     }
 
-    // Print entire list
+    // Print list
     public void display() {
         Node current = head;
         while (current != null) {
@@ -45,7 +45,7 @@ public class LinkedList1 {
         System.out.println("null");
     }
 
-    // Add at index
+    // Insert at index
     public void add(int idx, int data) {
         if (idx == 0) {
             addFirst(data);
@@ -64,7 +64,6 @@ public class LinkedList1 {
         newNode.next = temp.next;
         temp.next = newNode;
 
-        // if inserted at last
         if (newNode.next == null) {
             tail = newNode;
         }
@@ -80,7 +79,7 @@ public class LinkedList1 {
         int val = head.data;
         head = head.next;
 
-        if (head == null) {  // list becomes empty
+        if (head == null) {
             tail = null;
         }
 
@@ -94,14 +93,14 @@ public class LinkedList1 {
             return -1;
         }
 
-        if (head == tail) { // only one element
+        if (head == tail) {
             int val = head.data;
             head = tail = null;
             return val;
         }
 
         Node temp = head;
-        while (temp.next != tail) { // stop at second-last node
+        while (temp.next != tail) {
             temp = temp.next;
         }
 
@@ -112,50 +111,76 @@ public class LinkedList1 {
         return val;
     }
 
-    public int itrSearch(int key){
+    // Iterative search
+    public int itrSearch(int key) {
         Node temp = head;
         int i = 0;
-    while(temp!=null){
-        if(temp.data==key){
-            return i;
-        }temp = temp.next;
-        i++;
-    }
-    return -1;
-    }
-    
-    public int helper(Node head, int key){
-        if(head==null){
-            return -1;
+        while (temp != null) {
+            if (temp.data == key) return i;
+            temp = temp.next;
+            i++;
         }
-        if(head.data==key){
-            return 0;
-        }
+        return -1;
+    }
+
+    // Recursive helper
+    public int helper(Node head, int key) {
+        if (head == null) return -1;
+        if (head.data == key) return 0;
+
         int idx = helper(head.next, key);
-        if(idx==-1){
-            return -1;
-        }
-        return idx+1;
-
-    }
-    public int RecurSearch(int key){
-      return  helper(head, key);
-        
+        return idx == -1 ? -1 : idx + 1;
     }
 
-    public void reverseLL(){
+    // Recursive search
+    public int RecurSearch(int key) {
+        return helper(head, key);
+    }
+
+    // Reverse list
+    public void reverseLL() {
         Node pre = null;
-        Node curr = tail = head;
+        Node curr = head;
         Node next;
 
-        while(curr != null){
+        while (curr != null) {
             next = curr.next;
             curr.next = pre;
             pre = curr;
             curr = next;
         }
-        head = pre;
 
+        // Fix tail
+        tail = head;
+        head = pre;
+    }
+
+    // FIXED Delete Nth node from end
+    public void DeleteFromNth(int n) {
+
+        int sz = 0;
+        Node temp = head;
+
+        while (temp != null) {
+            temp = temp.next;
+            sz++;
+        }
+
+        if (n == sz) { // delete head
+            head = head.next;
+            return;
+        }
+
+        int iToFind = sz - n;
+        int i = 0;
+        Node pre = head;
+
+        while (i < iToFind - 1) {  // FIXED: stop at node BEFORE target
+            pre = pre.next;
+            i++;
+        }
+
+        pre.next = pre.next.next;
     }
 
     public static void main(String args[]) {
@@ -167,18 +192,7 @@ public class LinkedList1 {
         ll.addLast(4);
         ll.display();
 
-        ll.reverseLL();
-        ll.display();
-        
-
-        ll.display();
-        System.out.println(ll.RecurSearch(10));
-        System.out.println(ll.RecurSearch(13));
-
-        System.out.println("Removed First: " + ll.removeFirst());
-        ll.display();
-
-        System.out.println("Removed Last: " + ll.removeLast());
+        ll.DeleteFromNth(1);
         ll.display();
     }
 }
